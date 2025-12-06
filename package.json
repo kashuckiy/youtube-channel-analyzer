@@ -1,0 +1,12 @@
+{
+  "name": "youtube-extractor-node",
+  "version": "1.0.0",
+  "description": "Modern static UI for analyzing YouTube channels and exporting CSV reports.",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "build": "node scripts/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

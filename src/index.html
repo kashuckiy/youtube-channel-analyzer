@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Channel Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">YouTube Intelligence Toolkit</p>
+          <h1>Аналізуйте канали, обирайте відео та експортуйте результати</h1>
+          <p class="subtitle">
+            Вставте посилання на канал, позначте до 50 відео, натисніть
+            <strong>Analyze</strong> і отримайте таблицю з ключовими метриками та
+            CSV-файлом.
+          </p>
+        </div>
+        <div class="hero-badge">beta</div>
+      </header>
+
+      <section class="panel">
+        <div class="channel-form">
+          <label for="channelInput">Посилання на канал</label>
+          <div class="channel-actions">
+            <input
+              id="channelInput"
+              type="text"
+              placeholder="https://www.youtube.com/@channel"
+              autocomplete="off"
+            />
+            <button id="loadButton">Завантажити відео</button>
+            <button id="favoriteButton" class="secondary" disabled>
+              Додати в обрані
+            </button>
+          </div>
+          <p class="channel-status" id="channelStatus">Канал не вибрано</p>
+        </div>
+
+        <div class="favorites">
+          <div class="favorites-header">
+            <h3>Обрані канали</h3>
+            <button id="clearFavorites" class="link-button">Очистити</button>
+          </div>
+          <p class="favorites-hint">
+            Зберігайте канали у закладки, щоб повертатись одним кліком. Дані
+            зберігаються у вашому браузері.
+          </p>
+          <div id="favoritesList" class="favorites-list"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <h2>Відео</h2>
+            <p id="selectionInfo">0 / 50 вибрано</p>
+          </div>
+          <div class="section-actions">
+            <label class="bulk-select">
+              <input type="checkbox" id="selectAll" disabled />
+              <span>Вибрати всі</span>
+            </label>
+            <button id="analyzeButton" class="primary" disabled>Analyze</button>
+          </div>
+        </div>
+
+        <div id="videoGrid" class="video-grid empty-state">
+          <p>Почніть з додавання посилання на канал</p>
+        </div>
+
+        <button id="loadMoreButton" class="secondary full-width hidden">
+          Завантажити ще
+        </button>
+      </section>
+
+      <section id="analysisSection" class="panel hidden">
+        <div class="section-header">
+          <div>
+            <h2>Результати аналізу</h2>
+            <p>Переглядайте ключові метрики та експортуйте CSV</p>
+          </div>
+          <button id="downloadCsv" class="secondary" disabled>Завантажити CSV</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Превʼю</th>
+                <th>Назва</th>
+                <th>Опис</th>
+                <th>Теги</th>
+                <th>Ключові слова</th>
+                <th>Перегляди</th>
+                <th>Дата (Кіпр)</th>
+              </tr>
+            </thead>
+            <tbody id="analysisBody">
+              <tr>
+                <td colspan="7">Ще нема даних для відображення</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <button id="scrollTop" class="scroll-top" aria-label="Повернутися нагору">
+      <span aria-hidden="true">↑</span>
+    </button>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
