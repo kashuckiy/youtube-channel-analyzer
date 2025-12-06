@@ -1,5 +1,5 @@
 {
-  "name": "youtube-extractor-node",
+  "name": "youtube-channel-analyzer",
   "version": "1.0.0",
   "description": "Modern static UI for analyzing YouTube channels and exporting CSV reports.",
   "scripts": {
